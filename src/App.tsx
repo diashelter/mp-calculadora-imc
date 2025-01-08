@@ -59,11 +59,11 @@ function App() {
 
       <section id="form">
         <form onSubmit={handleSubmit}>
-          <div>
+          <div className={ imcData !== null ? 'hidden' : '' }>
             <Label htmlFor="weight" text="Peso (kg)" />
             <InputField id="weight" />
           </div>
-          <div>
+          <div className={ imcData !== null ? 'hidden' : '' }>
             <Label htmlFor="height" text="Altura (cm)" />
             <InputField id="height" />
           </div>
@@ -71,6 +71,7 @@ function App() {
           {imcData !== null ? (
             <button
               onClick={handleReset}
+              type="button"
               className="mt-6 bg-[#E85B81] text-white font-bold w-full py-3 rounded"
             >
               Calcular novamente
