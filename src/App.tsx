@@ -52,7 +52,7 @@ function App() {
   }
 
   return (
-    <main className="bg-white max-w-4xl mx-auto py-24 px-48">
+    <main className="bg-white max-w-4xl mx-auto md:py-24 md:px-48 px-5 py-10">
       <header className="text-center mb-3">
         <h1 className="text-gray-500 text-2xl font-bold">Calculadora de IMC</h1>
       </header>

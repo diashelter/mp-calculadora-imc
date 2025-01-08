@@ -1,6 +1,6 @@
 export default function ReferenceTable() {
   return (
-    <table className="mx-auto text-left text-neutral-600">
+    <table className="mx-auto text-left text-neutral-600 md:text-base text-xs">
       <thead className="text-[#E85B81] bg-zinc-100">
         <tr>
           <th className="px-6 py-2">IMC</th>
