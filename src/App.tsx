@@ -1,37 +1,51 @@
 function App() {
   return (
-    <main>
-      <header>
-        <h1>Calculadora de IMC</h1>
+    <main className="bg-white max-w-4xl mx-auto py-24 px-48">
+      <header className="text-center mb-3">
+        <h1 className="text-gray-500 text-2xl font-bold">Calculadora de IMC</h1>
       </header>
 
       <section id="form">
         <form action="">
           <div>
-            <label htmlFor="weight">Peso (KG)</label>
-            <input type="text" id="weight" />
+            <label htmlFor="weight" className="block text-[#505050] mb-1">
+              Peso (KG)
+            </label>
+            <input
+              type="text"
+              id="weight"
+              className="block w-full border border-[#E85B81] rounded p-3"
+            />
           </div>
           <div>
-            <label htmlFor="height">Altura (cm)</label>
-            <input type="text" id="height" />
+            <label htmlFor="height" className="block text-[#505050] mb-1">
+              Altura (cm)
+            </label>
+            <input
+              type="text"
+              id="height"
+              className="block w-full border border-[#E85B81] rounded p-3"
+            />
           </div>
-          <button type="submit">Calcular IMC</button>
+          <button className="mt-6 bg-[#E85B81] text-white font-bold w-full py-3 rounded">
+            Calcular IMC
+          </button>
         </form>
       </section>
 
-      <section id="result">
-        <p>Saiba agora se está no seu peso ideal</p>
+      <section id="result" className="py-10 px-4 h-40">
+        <p className="text-center text-neutral-400 text-xl">Saiba agora se está no seu peso ideal</p>
       </section>
 
       <section id="info">
-        <table>
-          <thead>
+        <table className="mx-auto text-left text-neutral-600">
+          <thead className="text-[#E85B81] bg-zinc-100">
             <tr>
-              <th>IMC</th>
-              <th>Classificação</th>
+              <th className="px-6 py-2">IMC</th>
+              <th className="px-6 py-2">Classificação</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="[&>tr:nth-child(even)]:bg-zinc-100 [&>tr:nth-child(odd)]:bg-white [&>tr>td]:px-6 [&>tr>td]:py-1">
             <tr>
               <td>Menor de 17</td>
               <td>Muito abaixo do peso</td>
