@@ -30,20 +30,25 @@ function App() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
 
-    const weight = data.get("weight");
-    const height = data.get("height");
+    const weight = data.get("weight") as string;
+    const height = data.get("height") as string;
 
     if (!weight || !height) {
       alert("Preencha todos os campos!");
       return;
     }
 
-    const imc = calculateIMC(Number(weight), Number(height));
+    if (isNaN(Number(weight.replace(",", "."))) || isNaN(Number(height.replace(",", ".")))) {
+      alert("Preencha com valores numéricos válidos!");
+      return;
+    }
+
+    const imc = calculateIMC(Number(weight.replace(",", ".")), Number(height.replace(",", ".")));
     const result = defineClassification(imc);
 
     setImcData({
-      weight: Number(weight),
-      height: Number(height),
+      weight: Number(weight.replace(",", ".")),
+      height: Number(height.replace(",", ".")),
       imc,
       classification: result,
     });
@@ -61,11 +66,11 @@ function App() {
         <form onSubmit={handleSubmit}>
           <div className={ imcData !== null ? 'hidden' : '' }>
             <Label htmlFor="weight" text="Peso (kg)" />
-            <InputField id="weight" />
+            <InputField id="weight" placeholder="Ex: 70 ou 70,5" />
           </div>
           <div className={ imcData !== null ? 'hidden' : '' }>
             <Label htmlFor="height" text="Altura (cm)" />
-            <InputField id="height" />
+            <InputField id="height"  placeholder="Ex: 170 ou 170,5"/>
           </div>
 
           {imcData !== null ? (
